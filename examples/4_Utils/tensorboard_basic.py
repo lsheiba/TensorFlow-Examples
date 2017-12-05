@@ -12,15 +12,16 @@ from __future__ import print_function
 import tensorflow as tf
 
 # Import MNIST data
+import os
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
+mnist = input_data.read_data_sets(os.environ['DATA_DIR'], one_hot=True)
 
 # Parameters
 learning_rate = 0.01
 training_epochs = 25
 batch_size = 100
 display_epoch = 1
-logs_path = '/tmp/tensorflow_logs/example/'
+logs_path = os.environ['TRAINING_DIR']
 
 # tf Graph Input
 # mnist data image of shape 28*28=784
@@ -91,7 +92,3 @@ with tf.Session() as sess:
     # Test model
     # Calculate accuracy
     print("Accuracy:", acc.eval({x: mnist.test.images, y: mnist.test.labels}))
-
-    print("Run the command line:\n" \
-          "--> tensorboard --logdir=/tmp/tensorflow_logs " \
-          "\nThen open http://0.0.0.0:6006/ into your web browser")
