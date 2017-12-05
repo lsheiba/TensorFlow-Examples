@@ -22,8 +22,9 @@ import numpy as np
 import tensorflow as tf
 
 # Import MNIST data
+import os
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
+mnist = input_data.read_data_sets(os.environ['DATA_DIR'], one_hot=True)
 
 # Training Params
 num_steps = 20000
