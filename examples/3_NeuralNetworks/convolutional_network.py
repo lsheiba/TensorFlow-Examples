@@ -13,8 +13,9 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 from __future__ import division, print_function, absolute_import
 
 # Import MNIST data
+import os
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=False)
+mnist = input_data.read_data_sets(os.environ['DATA_DIR'], one_hot=False)
 
 import tensorflow as tf
 
