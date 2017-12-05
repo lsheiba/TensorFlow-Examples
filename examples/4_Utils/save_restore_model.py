@@ -10,8 +10,9 @@ Project: https://github.com/aymericdamien/TensorFlow-Examples/
 from __future__ import print_function
 
 # Import MNIST data
+import os
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+mnist = input_data.read_data_sets(os.environ['DATA_DIR'], one_hot=True)
 
 import tensorflow as tf
 
@@ -19,7 +20,7 @@ import tensorflow as tf
 learning_rate = 0.001
 batch_size = 100
 display_step = 1
-model_path = "/tmp/model.ckpt"
+model_path = os.environ['TRAINING_DIR']+os.sep+'model.ckpt'
 
 # Network Parameters
 n_hidden_1 = 256 # 1st layer number of features
