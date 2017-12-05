@@ -19,8 +19,9 @@ from tensorflow.contrib import rnn
 import numpy as np
 
 # Import MNIST data
+import os
 from tensorflow.examples.tutorials.mnist import input_data
-mnist = input_data.read_data_sets("/tmp/data/", one_hot=True)
+mnist = input_data.read_data_sets(os.environ['DATA_DIR']", one_hot=True)
 
 '''
 To classify images using a bidirectional recurrent neural network, we consider
